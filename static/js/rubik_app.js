@@ -153,14 +153,18 @@ scan_btn.onclick = () => {
     scan_status.style.display = "block"
     
     var cameraOutput = document.createElement("img")
-    cameraSensor.width = 300;
-    cameraSensor.height = 300;
-    cameraSensor.getContext("2d").drawImage(cameraView, 170, 90, 300, 300, 0, 0, 300, 300);
+    cameraSensor.width = 640;
+    cameraSensor.height = 480;
+    cameraSensor.getContext("2d").drawImage(cameraView, 0, 0);
     // function aa(){
     //     var p = document.createElement("p")
     //     p.innerHTML = document.getElementsByClassName("nhac-in").value+";"+document.getElementById("rgb01")
     //     document.getElementById("nhac-div").appendChild(p)}
-    cameraOutput.src = cameraSensor.toDataURL("jpg");
+    const canvass = document.createElement('canvas');
+    canvass.width = 300;
+    canvass.height = 300;
+    canvass.getContext('2d').drawImage(cameraSensor, 170, 90, 300, 300, 0, 0, 300, 300); ;
+    cameraOutput.src = canvass.toDataURL("image/jpg");
     
     $.ajax({ 
         url: '/result', 
