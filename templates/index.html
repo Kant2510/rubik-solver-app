@@ -1,0 +1,151 @@
+<html lang=”en”>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Name of your awesome camera app -->
+    <title>Camera App</title>
+    <!-- Link to your main style sheet-->
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <!-- Camera -->
+    <main id="camera">
+        <!-- Camera sensor -->
+        <canvas id="camera--sensor"></canvas>
+        <!-- Camera view -->
+        <video id="camera--view" autoplay playsinline></video>
+        <div id="frame">
+            <div style="width: 2px; height: 304px; background-color: red; position:absolute; margin-top: -2px; margin-left: 98px;"></div>
+            <div style="width: 2px; height: 304px; background-color: red; position:absolute; margin-top: -2px; margin-left: 198px;"></div>
+            
+            <div style="width: 304px; height: 2px; background-color: red; position:absolute; margin-top: 98px; margin-left: -2px;"></div>
+            <div style="width: 304px; height: 2px; background-color: red; position:absolute; margin-top: 198px; margin-left: -2px;"></div>
+
+            <div style="display: flex; flex-direction: row">
+                <div class="dot"></div>
+                <select class="colors" name="color" style="border-radius: 10px; width: 40px; background-color: rgba(255, 95, 95, 0.325);" onclick="loadColor(this);" id="color0">
+                    <option value="yellow" style="background-color: #ffff00"></option>
+                    <option value="blue" style="background-color: #0000ff;"></option>
+                    <option value="red" style="background-color: #ff0000;"></option>
+                    <option value="green" style="background-color: #008000;"></option>
+                    <option value="orange" style="background-color: #ffa500;"></option>
+                    <option value="white" style="background-color: #ffffff;"></option>
+                </select>
+                <div style="width: 38px;"></div>
+                <div class="dot"></div>
+                <select class="colors" name="color" style="border-radius: 10px; width: 40px; background-color: rgba(255, 95, 95, 0.325);" onclick="loadColor(this);" id="color1">
+                    <option value="yellow" style="background-color: yellow"></option>
+                    <option value="blue" style="background-color: blue;"></option>
+                    <option value="red" style="background-color: red;"></option>
+                    <option value="green" style="background-color: green;"></option>
+                    <option value="orange" style="background-color: orange;"></option>
+                    <option value="white" style="background-color: white;"></option>
+                </select>
+                <div style="width: 38px;"></div>
+                <div class="dot"></div>
+                <select class="colors" name="color" style="border-radius: 10px; width: 40px; background-color: rgba(255, 95, 95, 0.325);" onclick="loadColor(this);" id="color2">
+                    <option value="yellow" style="background-color: yellow"></option>
+                    <option value="blue" style="background-color: blue;"></option>
+                    <option value="red" style="background-color: red;"></option>
+                    <option value="green" style="background-color: green;"></option>
+                    <option value="orange" style="background-color: orange;"></option>
+                    <option value="white" style="background-color: white;"></option>
+                </select>
+                <div style="width: 38px;"></div>
+            </div>
+            <div style="height: 78px;"></div>
+            <div style="display: flex; flex-direction: row">
+                <div class="dot"></div>
+                <select class="colors" name="color" style="border-radius: 10px; width: 40px; background-color: rgba(255, 95, 95, 0.325);" onclick="loadColor(this);" id="color3">
+                    <option value="yellow" style="background-color: yellow"></option>
+                    <option value="blue" style="background-color: blue;"></option>
+                    <option value="red" style="background-color: red;"></option>
+                    <option value="green" style="background-color: green;"></option>
+                    <option value="orange" style="background-color: orange;"></option>
+                    <option value="white" style="background-color: white;"></option>
+                </select>
+                <div style="width: 38px;"></div>
+                <div class="dot"></div>
+                <select class="colors" name="color" style="border-radius: 10px; width: 40px; background-color: rgba(255, 95, 95, 0.325);" onclick="loadColor(this);" id="color4">
+                    <option value="yellow" style="background-color: yellow"></option>
+                    <option value="blue" style="background-color: blue;"></option>
+                    <option value="red" style="background-color: red;"></option>
+                    <option value="green" style="background-color: green;"></option>
+                    <option value="orange" style="background-color: orange;"></option>
+                    <option value="white" style="background-color: white;"></option>
+                </select>
+                <div style="width: 38px;"></div>
+                <div class="dot"></div>
+                <select class="colors" name="color" style="border-radius: 10px; width: 40px; background-color: rgba(255, 95, 95, 0.325);" onclick="loadColor(this);" id="color5">
+                    <option value="yellow" style="background-color: yellow"></option>
+                    <option value="blue" style="background-color: blue;"></option>
+                    <option value="red" style="background-color: red;"></option>
+                    <option value="green" style="background-color: green;"></option>
+                    <option value="orange" style="background-color: orange;"></option>
+                    <option value="white" style="background-color: white;"></option>
+                </select>
+                <div style="width: 38px;"></div>
+            </div>
+            <div style="height: 78px;"></div>
+            <div style="display: flex; flex-direction: row">
+                <div class="dot"></div>
+                <select class="colors" name="color" style="border-radius: 10px; width: 40px; background-color: rgba(255, 95, 95, 0.325);" onclick="loadColor(this);" id="color6">
+                    <option value="yellow" style="background-color: yellow"></option>
+                    <option value="blue" style="background-color: blue;"></option>
+                    <option value="red" style="background-color: red;"></option>
+                    <option value="green" style="background-color: green;"></option>
+                    <option value="orange" style="background-color: orange;"></option>
+                    <option value="white" style="background-color: white;"></option>
+                </select>
+                <div style="width: 38px;"></div>
+                <div class="dot"></div>
+                <select class="colors" name="color" style="border-radius: 10px; width: 40px; background-color: rgba(255, 95, 95, 0.325);" onclick="loadColor(this);" id="color7">
+                    <option value="yellow" style="background-color: yellow"></option>
+                    <option value="blue" style="background-color: blue;"></option>
+                    <option value="red" style="background-color: red;"></option>
+                    <option value="green" style="background-color: green;"></option>
+                    <option value="orange" style="background-color: orange;"></option>
+                    <option value="white" style="background-color: white;"></option>
+                </select>
+                <div style="width: 38px;"></div>
+                <div class="dot"></div>
+                <select class="colors" name="color" style="border-radius: 10px; width: 40px; background-color: rgba(255, 95, 95, 0.325);" onclick="loadColor(this);" id="color8">
+                    <option value="yellow" style="background-color: yellow"></option>
+                    <option value="blue" style="background-color: blue;"></option>
+                    <option value="red" style="background-color: red;"></option>
+                    <option value="green" style="background-color: green;"></option>
+                    <option value="orange" style="background-color: orange;"></option>
+                    <option value="white" style="background-color: white;"></option>
+                </select>
+                <div style="width: 38px;"></div>
+            </div>
+        </div>
+        <!-- Camera output -->
+        <div id="image-list">
+        </div>
+        <!-- Camera trigger -->
+        
+    </main>
+    <p id="solve-result"style="margin-top: 5px; text-align: center;">Result:...</p>
+
+    
+    <!-- Reference to your JavaScript file -->
+    <!-- <script src="rubik_app.js"></script> -->
+    <!-- <script src="/static/three.min.js"></script> -->
+    <div id="container"></div>
+    
+    <p id="scan-status" style="margin-top: 220px; text-align: center;">Scanning...</p>
+    <div id="group">
+        <button id="scan">Scan</button>
+        <button id="capture" disabled>Capture</button>
+        <button id="solve" disabled>Solve</button>
+    </div>
+    <script src="/static/js/three.min.js"></script>
+    <script src="/static/js/rubik_app.js"></script>
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/js/style.js"></script>
+    <!--<script type="module" src="/static/app.js"></script> -->
+
+</body>
+</html>

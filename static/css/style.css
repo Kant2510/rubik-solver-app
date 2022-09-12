@@ -1,0 +1,106 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}
+#camera--sensor {
+    display: none;
+}
+#camera,
+#camera--view,
+#camera--output {
+    position: relative;
+    margin: 0 auto;
+    height: 400px;
+    width: 400px;
+    object-fit: none;
+}
+#camera--view,
+#camera--sensor,
+#camera--output {
+    transform: scaleX(-1);
+    filter: FlipH;
+}
+#container{
+    position: absolute;
+    left: 50%;
+    margin: -5 0 0 -100px;
+    height: 200px;
+}
+#scan:enabled, #capture:enabled, #solve:enabled{
+    width: 100px;
+    background-color: rgb(60, 144, 255);
+    color: white;
+    font-size: 16px;
+    border-radius: 30px;
+    border: none;
+    padding: 15px 20px;
+    text-align: center;
+    box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.2);
+    left: calc(50% - 100px);
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+#scan:disabled, #capture:disabled, #solve:disabled{
+    width: 100px;
+    background-color: rgb(90, 90, 90);
+    color: white;
+    font-size: 16px;
+    border-radius: 30px;
+    border: none;
+    padding: 15px 20px;
+    text-align: center;
+    box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.2);
+    margin-bottom: 10px;
+    left: calc(50% - 100px);
+}
+.taken {
+    transform: scaleX(-1);
+    filter: FlipH;
+    position: relative;
+    object-fit: fill;
+    height: 100px !important;
+    width: 100px !important;
+    transition: all 0.5s ease-in;
+    border: solid 3px white;
+    box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.2);
+    top: 0;
+    right: 20px;
+    z-index: 2;
+}
+#image-list {
+    display: none;
+	width: 320px;
+}
+#frame{
+	display: flex;
+	flex-direction: column;
+	position: absolute;
+	top: 48px;
+	left: 48px;
+	width: 300px;
+	height: 300px;
+	border: 2px solid red;
+}
+.dot{
+	width: 20px;
+	height: 20px;
+	border: 1px solid rgb(255, 255, 255);
+	border-radius: 50%;
+}
+option:hover{
+    width: 100px;
+}
+#group{
+    width: 400px;
+    position: absolute;
+    top: 680;
+    left: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: -5px;
+    margin-left: -200px;
+}
