@@ -51,48 +51,7 @@ function initAll(){
     initRender()
 }
 initAll()
-// function waitCube(){
-//     return new Promise(resolve => {
-//         var texture0 = new THREE.TextureLoader().load("/static/img/0.jpg", () => {renderer.render(scene, camera)});
-//         for(var i = 0; i < 6; i++){
-//             texture_list.push(new THREE.MeshBasicMaterial({ map: texture0 }));
-//         }
-//         cube = new THREE.Mesh(new THREE.BoxGeometry(2, 2, 2), texture_list);
-//         cube.rotation.x = Math.PI*90/180
-//         resolve(scene.add(cube));      
-//     });
-// }
-// function waitCamera(){
-//     return new Promise(resolve => {
-//         camera = new THREE.PerspectiveCamera(40, WIDTH / HEIGHT, 1 , 10);
-//         camera.position.set(2, 2, 5);
-//         camera.lookAt(scene.position);
-//         resolve(scene.add(camera));
-//     });
-// }
-// function waitRender(){
-//     return new Promise(resolve => {
-//         document.body.appendChild(renderer.domElement)
-//         renderer.setSize(WIDTH, HEIGHT);
-//     });
-// }
-// function initCube(){
-//     waitCube()
-// }
-// function initCamera(){
-//     waitCamera()
-// }
-// function initRender(){
-//     waitRender()
-// }
-// function initAll(){
-//     scene = new THREE.Scene();
-//     var loader = new THREE.TextureLoader();
-//     loader.crossOrigin = true;
-//     initCube()
-//     initCamera()
-//     initRender()  
-// }
+
 function update(cnt, order){
     if(document.getElementsByTagName("img")){
         var url_img = document.getElementsByTagName("img")[cnt - 1].src
@@ -167,11 +126,11 @@ const cameraView = document.querySelector("#camera--view"),
 function cameraStart() {
     navigator.mediaDevices
         .getUserMedia(constraints)
-        .then(function(stream) {
-        var track = stream.getTracks()[0];
-        cameraView.srcObject = stream;
-    })
-        .catch(function(error) {
+        .then(stream => {
+            track = stream.getTracks()[0];
+            cameraView.srcObject = stream;
+        })
+        .catch(error => {
             console.error("Oops. Something is broken.", error);
         });
 }
@@ -196,7 +155,7 @@ scan_btn.onclick = () => {
     var cameraOutput = document.createElement("img")
     cameraSensor.width = 300;
     cameraSensor.height = 300;
-    cameraSensor.getContext("2d").drawImage(cameraView, -170, -90);
+    cameraSensor.getContext("2d").drawImage(cameraView, 170, 90, 300, 300, 0, 0, 300, 300);
     // function aa(){
     //     var p = document.createElement("p")
     //     p.innerHTML = document.getElementsByClassName("nhac-in").value+";"+document.getElementById("rgb01")
