@@ -153,8 +153,8 @@ scan_btn.onclick = () => {
     scan_status.style.display = "block"
     
     var cameraOutput = document.createElement("img")
-    cameraSensor.width = 640;
-    cameraSensor.height = 480;
+    cameraSensor.width = cameraView.videoWidth;
+    cameraSensor.height = cameraView.videoHeight;
     cameraSensor.getContext("2d").drawImage(cameraView, 0, 0);
     // function aa(){
     //     var p = document.createElement("p")
@@ -163,7 +163,7 @@ scan_btn.onclick = () => {
     const canvass = document.createElement('canvas');
     canvass.width = 300;
     canvass.height = 300;
-    canvass.getContext('2d').drawImage(cameraSensor, 170, 90, 300, 300, 0, 0, 300, 300); ;
+    canvass.getContext('2d').drawImage(cameraSensor, -90, -170);
     cameraOutput.src = canvass.toDataURL("image/jpg");
     
     $.ajax({ 
